@@ -145,11 +145,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Arrays.h" />
+    <ClInclude Include="BinarySearch.h" />
+    <ClInclude Include="Dividers.h" />
     <ClInclude Include="Duplicates.h" />
     <ClInclude Include="Factorial.h" />
     <ClInclude Include="Interval.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="Matrix.h" />
+    <ClInclude Include="Path.h" />
+    <ClInclude Include="Permutation.h" />
     <ClInclude Include="RepeatedMissed.h" />
     <ClInclude Include="RepeatedNumber.h" />
     <ClInclude Include="RotateMatrix.h" />

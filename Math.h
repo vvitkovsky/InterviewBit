@@ -182,3 +182,66 @@ string convertToTitle(int A) {
     return r;
 }
 
+int isPalindrome(int A) {
+    if (A < 0) {
+        return 0;
+    }
+    if (A == 0) {
+        return 1;
+    }
+
+    int count = 0;
+    int tmp = A;
+    while (tmp != 0) {
+        tmp = tmp / 10;
+        count++;
+    }
+
+    for (int i = 1; i <= count / 2; i++) {
+        int l = (int)(A / pow(10, count - i)) % 10;
+        int r = (int)(A / pow(10, i - 1)) % 10;
+
+        if (l != r) {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+int reverse(int A) {
+    int count = 0;
+    int tmp = A;
+    while (tmp != 0) {
+        tmp /= 10;
+        count++;
+    }
+    long r = 0;
+    for (int i = 1; i <= count; i++) {
+        int d = (int)(A / pow(10, i - 1)) % 10;
+        r += d * pow(10, count - i);
+    }
+    return r > INT_MAX || r < INT_MIN ? 0 : (int)r;
+}
+
+int trailingZeroes(int A) {
+    int div = 5;
+    int count = 0;
+
+    while (div <= A) {
+        count += A / div;
+        div *= 5;
+    }
+    return count;
+}
+
+// Rearrange a given array so that Arr[i] becomes Arr[Arr[i]] with O(1) extra space.
+void arrange(vector<int>& A) {
+    int n = A.size();
+    for (int i = 0; i < A.size(); i++) {
+        A[i] += (A[A[i] % n] % n) * n;
+    }
+
+    for (auto& x : A) {
+        x = x / n;
+    }
+}

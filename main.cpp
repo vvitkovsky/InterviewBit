@@ -12,6 +12,9 @@
 #include "Matrix.h"
 #include "RepeatedNumber.h"
 #include "Math.h"
+#include "Dividers.h"
+#include "Permutation.h"
+#include "BinarySearch.h"
 
 using namespace std;
 
@@ -86,11 +89,7 @@ string largestNumber(const vector<int>& A) {
 
 int main()
 {
-    auto r = convertToTitle(943566);
-
-    vector<int> tmp = { 1, 1, 1, 2, 3, 5, 7, 8, 9 };
-
-    repeatedNumber(tmp);
+    auto r = sqrt(930675566);
 
     vector<int> vec = { 3, 30, 34, 5, 9 };
     largestNumber(vec);

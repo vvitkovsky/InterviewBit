@@ -6,6 +6,8 @@
 #include <algorithm>
 #include <string>
 #include <queue>
+#include <sstream> 
+#include <map>
 
 #include "RotateMatrix.h"
 #include "Interval.h"
@@ -86,6 +88,57 @@ string largestNumber(const vector<int>& A) {
         result += x;
     }     
     return result;
+}
+
+void getPath(int x, int y, string s, vector<string>& v) {
+    if (x == 0 && y == 0) {
+        v.push_back(s);
+    }
+    if (y > 0) {
+        getPath(x, y - 1, s + "H", v);
+    }
+    if (x > 0) {
+        getPath(x - 1, y, s + "V", v);
+    }
+}
+
+vector<string> getSafePaths(vector<string> journeys) {
+    vector<string> r;
+    for (auto& s : journeys) {
+        stringstream ss(s);
+
+        int x(0), y(0), k(0);
+        ss >> x;
+        ss >> y;
+        ss >> k;
+
+        vector<string> v;
+        getPath(x, y, "", v);
+        r.push_back(v[k]);
+    }
+    return r;
+};
+
+int mostBalancedPartition(vector<int> parent, vector<int> files_size) {
+    int s = 0;
+    for (auto& x : files_size) {
+        s += x;
+    }
+    
+    vector<int> sums(parent.size(), 0);
+
+    sums[0] += files_size[0];
+    for (int i = parent.size() - 1; i > 0; i--) {
+        sums[i] += files_size[i];
+        sums[parent[i]] += sums[i];
+    }
+
+    int m = s;
+    for (int i = 0; i < sums.size(); i++) {
+        m = min(m, abs(s - sums[i]));
+    }
+
+    return m;
 }
 
 int main()

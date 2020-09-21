@@ -15,6 +15,7 @@
 #include "Dividers.h"
 #include "Permutation.h"
 #include "BinarySearch.h"
+#include "Strings.h"
 
 using namespace std;
 
@@ -88,11 +89,8 @@ string largestNumber(const vector<int>& A) {
 }
 
 int main()
-{
-    auto r = sqrt(930675566);
-
-    vector<int> vec = { 3, 30, 34, 5, 9 };
-    largestNumber(vec);
+{    
+    auto r = zigZagConcat("PAYPALISHIRING", 3);
 
     std::cout << "Hello World!\n";
 }

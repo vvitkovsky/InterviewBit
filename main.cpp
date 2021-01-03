@@ -8,6 +8,7 @@
 #include <queue>
 #include <sstream> 
 #include <map>
+#include <unordered_map>
 
 #include "RotateMatrix.h"
 #include "Interval.h"
@@ -141,10 +142,27 @@ int mostBalancedPartition(vector<int> parent, vector<int> files_size) {
     return m;
 }
 
+bool alternatingSort(vector<int> a) {
+    int start = 0;
+    int end = a.size() - 1;
+    int prev = INT_MIN;
+
+    while (start <= end) {
+        if (a[start] < prev) {
+            return false;
+        }
+        if (start != end && a[start] > a[end]) {
+            return false;
+        }
+        prev = a[end];
+        start++;
+        end--;
+    }
+    return true;
+}
+
 int main()
 {    
-    auto r = zigZagConcat("PAYPALISHIRING", 3);
-
     std::cout << "Hello World!\n";
 }
 

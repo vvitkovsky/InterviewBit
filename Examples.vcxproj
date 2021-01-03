@@ -152,6 +152,7 @@
     <ClInclude Include="Interval.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="Matrix.h" />
+    <ClInclude Include="Mean.h" />
     <ClInclude Include="Path.h" />
     <ClInclude Include="Permutation.h" />
     <ClInclude Include="RepeatedMissed.h" />
